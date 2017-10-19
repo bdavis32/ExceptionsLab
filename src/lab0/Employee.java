@@ -93,7 +93,10 @@ public class Employee {
         return ssn;
     }
 
-    public final void setSsn(String ssn) {
+    public final void setSsn(String ssn) throws IllegalArgumentException{
+        if(ssn == null || ssn.isEmpty() || ssn.length() < 9 || ssn.length() > 11){
+            throw new IllegalArgumentException("SSN is mandatory. Please try again.");
+        }
         this.ssn = ssn;
     }
 
@@ -101,7 +104,10 @@ public class Employee {
         return minVacationDays;
     }
 
-    public final void setMinVacationDays(int minVacationDays) {
+    public final void setMinVacationDays(int minVacationDays) throws IllegalArgumentException{
+        if(minVacationDays < 0){
+            throw new IllegalArgumentException("Minimum vacation days is mandatory. Please try again.");
+        }
         this.minVacationDays = minVacationDays;
     }
 
@@ -110,9 +116,13 @@ public class Employee {
     }
 
     public final void setMaxVacationDays(int maxVacationDays) {
+        if(maxVacationDays > 28){
+            throw new IllegalArgumentException("Maximum vacation days is mandatory. Please try again.");
+        }
         this.maxVacationDays = maxVacationDays;
     }
     
+    @Override
     public final String toString() {
         return firstName + " " + lastName;
     }
