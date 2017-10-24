@@ -16,6 +16,7 @@ package lab0;
  * @version 1.00
  */
 public class Employee {
+
     private int minVacationDays = 0;
     private int maxVacationDays = 28;
     public static final int MAX_VACATION_DAYS = 28;
@@ -34,6 +35,7 @@ public class Employee {
 
     /**
      * Convenience constructor to set all properties.
+     *
      * @param firstName - cannot be null or empty
      * @param lastName - cannot be null or empty
      * @param ssn
@@ -51,8 +53,8 @@ public class Employee {
         return daysVacation;
     }
 
-    public final void setDaysVacation(int daysVacation) throws IllegalArgumentException{
-        if(daysVacation < minVacationDays || daysVacation > maxVacationDays){
+    public final void setDaysVacation(int daysVacation) throws IllegalArgumentException {
+        if (daysVacation < minVacationDays || daysVacation > maxVacationDays) {
             throw new IllegalArgumentException("Bad value for vacation days");
         }
         this.daysVacation = daysVacation;
@@ -64,11 +66,12 @@ public class Employee {
 
     /**
      * Mutates the first name.
+     *
      * @param firstName - cannot be null or empty
      * @throws IllegalArgumentException if firstName is null or empty
      */
     public final void setFirstName(String firstName) throws IllegalArgumentException {
-        if(firstName == null || firstName.isEmpty()) {
+        if (firstName == null || firstName.isEmpty()) {
             throw new IllegalArgumentException("Sorry, first name is mandatory. Please try again");
         }
         this.firstName = firstName;
@@ -80,10 +83,11 @@ public class Employee {
 
     /**
      * Mutates the lastName.
+     *
      * @param lastName - cannot be null or empty
      */
     public final void setLastName(String lastName) throws IllegalArgumentException {
-        if(lastName == null || lastName.isEmpty()){
+        if (lastName == null || lastName.isEmpty()) {
             throw new IllegalArgumentException("Last name is mandatory. Please try again.");
         }
         this.lastName = lastName;
@@ -93,8 +97,8 @@ public class Employee {
         return ssn;
     }
 
-    public final void setSsn(String ssn) throws IllegalArgumentException{
-        if(ssn == null || ssn.isEmpty() || ssn.length() < 9 || ssn.length() > 11){
+    public final void setSsn(String ssn) throws IllegalArgumentException {
+        if (ssn == null || ssn.isEmpty() || ssn.length() < 9 || ssn.length() > 11) {
             throw new IllegalArgumentException("SSN is mandatory. Please try again.");
         }
         this.ssn = ssn;
@@ -104,8 +108,8 @@ public class Employee {
         return minVacationDays;
     }
 
-    public final void setMinVacationDays(int minVacationDays) throws IllegalArgumentException{
-        if(minVacationDays < 0){
+    public final void setMinVacationDays(int minVacationDays) throws IllegalArgumentException {
+        if (minVacationDays < 0) {
             throw new IllegalArgumentException("Minimum vacation days is mandatory. Please try again.");
         }
         this.minVacationDays = minVacationDays;
@@ -115,13 +119,13 @@ public class Employee {
         return maxVacationDays;
     }
 
-    public final void setMaxVacationDays(int maxVacationDays) {
-        if(maxVacationDays > 28){
+    public final void setMaxVacationDays(int maxVacationDays) throws IllegalArgumentException {
+        if (maxVacationDays > 28) {
             throw new IllegalArgumentException("Maximum vacation days is mandatory. Please try again.");
         }
         this.maxVacationDays = maxVacationDays;
     }
-    
+
     @Override
     public final String toString() {
         return firstName + " " + lastName;
